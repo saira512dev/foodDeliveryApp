@@ -25,7 +25,7 @@ export default function index() {
               <Pressable
                 className={cn(
                   "offer-card",
-                  isEven ? "flex-row-reverse" : "flex-row"
+                  isEven ? "flex-row-reverse" : "flex-row",
                 )}
                 style={{ backgroundColor: item.color }}
                 android_ripple={{ color: "#ffffff" }}
@@ -42,7 +42,7 @@ export default function index() {
                     <View
                       className={cn(
                         "offer-card__info",
-                        isEven ? "pl-10" : "pr-10"
+                        isEven ? "pl-10" : "pr-10",
                       )}
                     >
                       <Text className="h1-bold text-white leading-tight">

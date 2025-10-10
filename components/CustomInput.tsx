@@ -27,7 +27,7 @@ const CustomInput = ({
         onBlur={() => setIsFocused(false)}
         className={cn(
           "input",
-          isFocused ? "border-primary" : "border-gray-300"
+          isFocused ? "border-primary" : "border-gray-300",
         )}
       />
     </View>

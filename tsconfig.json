@@ -4,10 +4,8 @@
     "moduleResolution": "node",
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
-    },
+      "@/*": ["./*"]
+    }
   },
   "include": [
     "**/*.ts",
