@@ -27,9 +27,10 @@ export const CreateUser = async ({
 }: CreateUserParams) => {
   try {
     const newAccount = await account.create(ID.unique(), email, password, name);
-    if (!newAccount) throw Error;
+    if (!newAccount) throw new Error("Account creation failed");
 
     await signIn({ email, password });
+
 
     const avatarUrl: URL = avatars.getInitialsURL(name);
 
@@ -50,12 +51,14 @@ export const CreateUser = async ({
 };
 
 export const signIn = async ({
-  email,
-  password,
-}: SignInParams): Promise<void> => {
-  try {
-    const session = await account.createEmailPasswordSession(email, password);
-  } catch (e) {
-    
-  }
-};
+    email,
+    password,
+  }: SignInParams) : Promise<void> => {
+    try {
+      const session = await account.createEmailPasswordSession(email, password);
+    } catch (e: any) {
+      console.error("Sign in error:", e.message);
+      throw new Error(e.message || "Failed to sign in");
+    }
+  };
+  
