@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "Sentry": {
+      "url": "https://mcp.sentry.dev/mcp/js-mastery-7pz/react-native",
+      "type": "http"
+    }
+  }
+}
