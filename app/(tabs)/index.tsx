@@ -1,6 +1,7 @@
 import CartButton from "@/components/CartButton";
 import { images, offers } from "@/constants";
 import "@/global.css";
+import useAuthStore from "@/store/auth.store";
 import cn from "clsx";
 import { Fragment } from "react";
 import {
@@ -14,6 +15,9 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function index() {
+  const { user } = useAuthStore();
+
+  console.log("user:", JSON.stringify(user, null, 2));
   return (
     <SafeAreaView className="flex-1 bg-white">
       <FlatList
@@ -25,7 +29,7 @@ export default function index() {
               <Pressable
                 className={cn(
                   "offer-card",
-                  isEven ? "flex-row-reverse" : "flex-row",
+                  isEven ? "flex-row-reverse" : "flex-row"
                 )}
                 style={{ backgroundColor: item.color }}
                 android_ripple={{ color: "#ffffff" }}
@@ -42,7 +46,7 @@ export default function index() {
                     <View
                       className={cn(
                         "offer-card__info",
-                        isEven ? "pl-10" : "pr-10",
+                        isEven ? "pl-10" : "pr-10"
                       )}
                     >
                       <Text className="h1-bold text-white leading-tight">
@@ -78,6 +82,7 @@ export default function index() {
             <CartButton />
           </View>
         )}
+        // ListFooterComponent={() =>}
       />
     </SafeAreaView>
   );
