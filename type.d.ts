@@ -111,7 +111,13 @@ interface SignInParams {
   password: string;
 }
 
-interface GetMenuParams {
-  category: string;
-  query: string;
-}
+// interface GetMenuParams {
+//   category: string;
+//   query: string;
+// }
+
+type GetMenuParams = {
+  category?: string;
+  query?: string;
+  limit?: number;
+};
