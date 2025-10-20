@@ -17,7 +17,7 @@ const TabBarIcon = ({ focused, icon, title }: TabBarIconProps) => (
     <Text
       className={cn(
         "text-sm font-bold",
-        focused ? "text-primary" : "text-gray-200"
+        focused ? "text-primary" : "text-gray-200",
       )}
     >
       {title}
