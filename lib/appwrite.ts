@@ -1,17 +1,17 @@
 import {
-  CreateUserParams,
-  GetMenuParams,
-  SignInParams,
-  UserData,
+    CreateUserParams,
+    GetMenuParams,
+    SignInParams,
+    UserData
 } from "@/type";
 import {
-  Account,
-  Avatars,
-  Client,
-  Databases,
-  ID,
-  Query,
-  Storage,
+    Account,
+    Avatars,
+    Client,
+    Databases,
+    ID,
+    Query,
+    Storage
 } from "react-native-appwrite";
 
 export const appwriteConfig = {
@@ -124,6 +124,8 @@ export const getCategories = async () => {
       appwriteConfig.databaseId,
       appwriteConfig.categoriesCollectionId,
     );
+
+    return categories.documents;
   } catch (error) {
     throw new Error(error as string);
   }
