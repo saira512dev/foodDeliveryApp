@@ -45,7 +45,7 @@ const Search = () => {
                 !isFirstRightColItem ? "mt-10" : "mt-0"
               )}
             >
-              <MenuCard item={item as MenuItem} />
+              <MenuCard item={item as unknown as MenuItem} />
             </View>
           );
         }}
@@ -68,8 +68,6 @@ const Search = () => {
               </View>
               <CartButton />
             </View>
-            <Text>Search Input</Text>
-            <Text>Filter</Text>
             <SearchBar />
             <Filter categories={categories!} />
           </View>
