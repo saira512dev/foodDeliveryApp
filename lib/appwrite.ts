@@ -1,4 +1,5 @@
 import {
+    Category,
     CreateUserParams,
     GetMenuParams,
     SignInParams,
@@ -120,13 +121,24 @@ export const getMenu = async ({ category, query }: GetMenuParams) => {
 
 export const getCategories = async () => {
   try {
-    const categories = await databases.listDocuments(
+    const res = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.categoriesCollectionId,
     );
 
-    return categories.documents;
-  } catch (error) {
+    const categories: Category[] = res.documents.map(
+        (doc) =>
+          ({
+            $id: doc.$id,
+            $createdAt: doc.$createdAt,
+            $updatedAt: doc.$updatedAt,
+            name: doc.name,
+            description: doc.description,
+          } as Category)
+      );
+  
+      return categories;
+    } catch (error) {
     throw new Error(error as string);
   }
 };
