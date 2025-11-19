@@ -142,3 +142,13 @@ export const getCategories = async () => {
     throw new Error(error as string);
   }
 };
+
+export const signOut = async () => {
+    try {
+      await account.deleteSession("current");
+      console.log("Signed out from Appwrite");
+    } catch (err) {
+      console.error("Sign-out failed:", err);
+    }
+  };
+  
